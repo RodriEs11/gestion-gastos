@@ -10,14 +10,14 @@ import {
 } from "@nextui-org/react";
 import React from "react";
 
-export const AddUser = () => {
+export const AddAutor = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <div>
       <>
         <Button onPress={onOpen} color="primary">
-          Add User
+          Agregar autor
         </Button>
         <Modal
           isOpen={isOpen}
@@ -28,27 +28,19 @@ export const AddUser = () => {
             {(onClose) => (
               <>
                 <ModalHeader className="flex flex-col gap-1">
-                  Add User
+                Agregar autor
                 </ModalHeader>
                 <ModalBody>
-                  <Input label="Email" variant="bordered" />
-                  <Input label="First Name" variant="bordered" />
-                  <Input label="Last Name" variant="bordered" />
-                  <Input label="Phone Number" variant="bordered" />
-
-                  <Input label="Password" type="password" variant="bordered" />
-                  <Input
-                    label="Confirm Password"
-                    type="password"
-                    variant="bordered"
-                  />
+                  <Input label="Nombre" variant="bordered" />
+                  <Input label="Apellido" variant="bordered" />
+              
                 </ModalBody>
                 <ModalFooter>
                   <Button color="danger" variant="flat" onClick={onClose}>
-                    Close
+                    Cerrar
                   </Button>
                   <Button color="primary" onPress={onClose}>
-                    Add User
+                    Agregar autor
                   </Button>
                 </ModalFooter>
               </>

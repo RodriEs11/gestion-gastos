@@ -3,12 +3,12 @@ import Chart, { Props } from "react-apexcharts";
 
 const state: Props["series"] = [
   {
-    name: "Series1",
-    data: [31, 40, 28, 51, 42, 109, 100],
+    name: "Mastercard",
+    data: [80,70,24,10,0],
   },
   {
-    name: "Series2",
-    data: [11, 32, 45, 32, 34, 52, 41],
+    name: "VISA",
+    data: [150,200,120,80,50,20,0],
   },
 ];
 
@@ -29,12 +29,15 @@ const options: Props["options"] = {
     foreColor: "hsl(var(--nextui-default-800))",
     stacked: true,
     toolbar: {
-      show: false,
+      show: true,
+      autoSelected: 'zoom' 
     },
+
+    
   },
 
   xaxis: {
-    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+    categories: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"],
     labels: {
       // show: false,
       style: {
@@ -80,7 +83,7 @@ export const Steam = () => {
     <>
       <div className="w-full z-20">
         <div id="chart">
-          <Chart options={options} series={state} type="area" height={425} />
+          <Chart options={options} series={state} type="area" height={450} />
         </div>
       </div>
     </>

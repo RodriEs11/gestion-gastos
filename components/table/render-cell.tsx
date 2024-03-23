@@ -1,83 +1,86 @@
 import { User, Tooltip, Chip } from "@nextui-org/react";
-import React from "react";
-import { DeleteIcon } from "../icons/table/delete-icon";
-import { EditIcon } from "../icons/table/edit-icon";
+import React, { useEffect, useState } from "react";
 import { EyeIcon } from "../icons/table/eye-icon";
-import { users } from "./data";
+import { autores } from "./data";
+
+import { FaWallet } from "react-icons/fa";
 
 interface Props {
-  user: (typeof users)[number];
+  user: (typeof autores)[number];
   columnKey: string | React.Key;
 }
 
-export const RenderCell = ({ user, columnKey }: Props) => {
+export const RenderCell = ({ user, columnKey}: Props) => {
   // @ts-ignore
+
   const cellValue = user[columnKey];
+
   switch (columnKey) {
-    case "name":
+    case "nombre":
       return (
         <User
           avatarProps={{
             src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
           }}
           name={cellValue}
-        >
-          {user.email}
-        </User>
+        ></User>
       );
-    case "role":
+    case "deuda":
       return (
         <div>
           <div>
-            <span>{cellValue}</span>
-          </div>
-          <div>
-            <span>{user.team}</span>
+            <span>{user.deuda}</span>
           </div>
         </div>
       );
-    case "status":
+    case "estado":
       return (
         <Chip
           size="sm"
           variant="flat"
           color={
-            cellValue === "active"
+            cellValue === "pagado"
               ? "success"
-              : cellValue === "paused"
-              ? "danger"
-              : "warning"
+              : cellValue === "depositado"
+              ? "warning"
+              : "danger"
           }
         >
           <span className="capitalize text-xs">{cellValue}</span>
         </Chip>
       );
 
-    case "actions":
+    case "acciones":
       return (
         <div className="flex items-center gap-4 ">
           <div>
-            <Tooltip content="Details">
-              <button onClick={() => console.log("View user", user.id)}>
+            <Tooltip content="Ver gastos">
+              <button onClick={() => console.log("Ver usuario", user)}>
                 <EyeIcon size={20} fill="#979797" />
               </button>
             </Tooltip>
           </div>
+
           <div>
-            <Tooltip content="Edit user" color="secondary">
-              <button onClick={() => console.log("Edit user", user.id)}>
-                <EditIcon size={20} fill="#979797" />
+            <Tooltip content="Pagado" color="success">
+              <button>
+                <FaWallet size={20} fill="#3fd166" />
               </button>
             </Tooltip>
           </div>
+
           <div>
-            <Tooltip
-              content="Delete user"
-              color="danger"
-              onClick={() => console.log("Delete user", user.id)}
-            >
+            <Tooltip content="Depositado" color="warning">
               <button>
-                <DeleteIcon size={20} fill="#FF0080" />
+                <FaWallet size={20} fill="#b8963b" />
+              </button>
+            </Tooltip>
+          </div>
+
+          <div>
+            <Tooltip content="Deudor" color="danger">
+              <button>
+                <FaWallet size={20} fill="#9e1811" />
               </button>
             </Tooltip>
           </div>

@@ -41,19 +41,14 @@ export const NavbarWrapper = ({ children }: Props) => {
           justify="end"
           className="w-fit data-[justify=end]:flex-grow-0"
         >
-          <div className="flex items-center gap-2 max-md:hidden">
-            <FeedbackIcon />
-            <span>Feedback?</span>
-          </div>
-
           <NotificationsDropdown />
 
-          <div className="max-md:hidden">
+          <Link href="ayuda" className="max-md:hidden">
             <SupportIcon />
-          </div>
+          </Link>
 
           <Link
-            href="https://github.com/Siumauricio/nextui-dashboard-template"
+            href="https://github.com/RodriEs11"
             target={"_blank"}
           >
             <GithubIcon />

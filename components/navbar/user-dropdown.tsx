@@ -31,17 +31,15 @@ export const UserDropdown = () => {
           key="profile"
           className="flex flex-col justify-start w-full items-start"
         >
-          <p>Signed in as</p>
+          <p>Usuario</p>
           <p>zoey@example.com</p>
         </DropdownItem>
-        <DropdownItem key="settings">My Settings</DropdownItem>
-        <DropdownItem key="team_settings">Team Settings</DropdownItem>
-        <DropdownItem key="analytics">Analytics</DropdownItem>
-        <DropdownItem key="system">System</DropdownItem>
-        <DropdownItem key="configurations">Configurations</DropdownItem>
-        <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
+        <DropdownItem key="settings">Configuración</DropdownItem>
+        <DropdownItem key="analytics">Gastos</DropdownItem>
+        <DropdownItem key="system">Sistema</DropdownItem>
+        <DropdownItem key="help_and_feedback">Ayuda</DropdownItem>
         <DropdownItem key="logout" color="danger" className="text-danger ">
-          Log Out
+          Cerrar Sesión
         </DropdownItem>
         <DropdownItem key="switch">
           <DarkModeSwitch />
