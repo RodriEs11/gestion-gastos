@@ -7,9 +7,8 @@ import {
   DropdownTrigger,
 } from "@nextui-org/react";
 import React, { useState } from "react";
-import { AcmeIcon } from "../icons/acme-icon";
-import { AcmeLogo } from "../icons/acmelogo";
-import { BottomIcon } from "../icons/sidebar/bottom-icon";
+import { IoLogoVercel } from "react-icons/io5";
+import { RiLayoutBottom2Fill } from "react-icons/ri";
 
 interface Company {
   name: string;
@@ -22,7 +21,7 @@ export const CompaniesDropdown = () => {
   const [company, setCompany] = useState<Company>({
     name: "Compania",
     location: "Buenos Aires, Arg",
-    logo: <AcmeIcon />,
+    logo: <IoLogoVercel />,
   });
 
   return (
@@ -42,7 +41,7 @@ export const CompaniesDropdown = () => {
               {company.location}
             </span>
           </div>
-          <BottomIcon />
+          <RiLayoutBottom2Fill  />
         </div>
       </DropdownTrigger>
 
@@ -52,7 +51,7 @@ export const CompaniesDropdown = () => {
             setCompany({
               name: "Compania",
               location: "Buenos Aires, Arg",
-              logo: <AcmeIcon />,
+              logo: <IoLogoVercel />,
             });
           }
         
@@ -62,7 +61,7 @@ export const CompaniesDropdown = () => {
         <DropdownSection title="Companias">
           <DropdownItem
             key="1"
-            startContent={<AcmeIcon />}
+            startContent={<IoLogoVercel />}
             description="Buenos Aires, Arg"
             classNames={{
               base: "py-4",

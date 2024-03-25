@@ -1,15 +1,9 @@
 "use client";
 import React from "react";
-import dynamic from "next/dynamic";
-import { Tarjeta } from "./tarjeta";
+
+import { TarjetaResumen } from "../tarjetas/tarjetaResumen";
 import { CardTransactions } from "./card-transactions";
 
-const Chart = dynamic(
-  () => import("../charts/steam").then((mod) => mod.Steam),
-  {
-    ssr: false,
-  }
-);
 
 export const Index = () => (
   <div className="h-full lg:px-6">
@@ -19,7 +13,8 @@ export const Index = () => (
         <div className="flex flex-col gap-2">
           <h3 className="text-xl font-semibold">Tarjetas de crédito</h3>
           <div className="grid md:grid-cols-2 grid-cols-1 2xl:grid-cols-3 gap-5  justify-center w-full">
-            <Tarjeta
+            
+            <TarjetaResumen
               nombre="Visa Platinum"
               deuda="$45.000"
               limiteTotal="$1.200.000"

@@ -2,14 +2,13 @@
 import { Button, Input } from "@nextui-org/react";
 import Link from "next/link";
 import React from "react";
-import { DotsIcon } from "@/components/icons/accounts/dots-icon";
-import { ExportIcon } from "@/components/icons/accounts/export-icon";
-import { InfoIcon } from "@/components/icons/accounts/info-icon";
-import { TrashIcon } from "@/components/icons/accounts/trash-icon";
-import { HouseIcon } from "@/components/icons/breadcrumb/house-icon";
-import { UsersIcon } from "@/components/icons/breadcrumb/users-icon";
-import { SettingsIcon } from "@/components/icons/sidebar/settings-icon";
-import { TableWrapper } from "@/components/table/table";
+
+import { BsThreeDots } from "react-icons/bs";
+import { BiExport, BiInfoCircle, BiTrash  } from "react-icons/bi";
+import { FaHouse, FaUsers  } from "react-icons/fa6";
+import { IoSettingsSharp } from "react-icons/io5";
+
+import { TablaAutores } from "@/components/autores/tabla-autores";
 import { AddAutor } from "./add-autor";
 
 export const Autores = () => {
@@ -17,7 +16,7 @@ export const Autores = () => {
     <div className="my-14 lg:px-6 max-w-[95rem] mx-auto w-full flex flex-col gap-4">
       <ul className="flex">
         <li className="flex gap-2">
-          <HouseIcon />
+          <FaHouse />
           <Link href={"/"}>
             <span>Inicio</span>
           </Link>
@@ -25,7 +24,7 @@ export const Autores = () => {
         </li>
 
         <li className="flex gap-2">
-          <UsersIcon />
+          <FaUsers />
           <span>Autores</span>
           <span> / </span>{" "}
         </li>
@@ -44,20 +43,20 @@ export const Autores = () => {
             }}
             placeholder="Buscar autor"
           />
-          <SettingsIcon />
-          <TrashIcon />
-          <InfoIcon />
-          <DotsIcon />
+          <IoSettingsSharp />
+          <BiTrash />
+          <BiInfoCircle />
+          <BsThreeDots />
         </div>
         <div className="flex flex-row gap-3.5 flex-wrap">
           <AddAutor />
-          <Button color="primary" startContent={<ExportIcon />}>
+          <Button color="primary" startContent={<BiExport />}>
             Exportar a CSV
           </Button>
         </div>
       </div>
       <div className="max-w-[95rem] mx-auto w-full">
-        <TableWrapper />
+        <TablaAutores />
       </div>
     </div>
   );

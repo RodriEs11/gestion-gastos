@@ -1,19 +1,16 @@
 import { User, Tooltip, Chip } from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
-import { EyeIcon } from "../icons/table/eye-icon";
-import { autores } from "./data";
-
-import { FaWallet } from "react-icons/fa";
+import { autores } from "../../data_db/autores";
+import { FaWallet, FaEye  } from "react-icons/fa";
 
 interface Props {
-  user: (typeof autores)[number];
+  autor: (typeof autores)[number];
   columnKey: string | React.Key;
 }
 
-export const RenderCell = ({ user, columnKey}: Props) => {
+export const RenderCell = ({ autor, columnKey}: Props) => {
   // @ts-ignore
 
-  const cellValue = user[columnKey];
+  const cellValue = autor[columnKey];
 
   switch (columnKey) {
     case "nombre":
@@ -29,7 +26,7 @@ export const RenderCell = ({ user, columnKey}: Props) => {
       return (
         <div>
           <div>
-            <span>{user.deuda}</span>
+            <span>{autor.deuda}</span>
           </div>
         </div>
       );
@@ -55,8 +52,8 @@ export const RenderCell = ({ user, columnKey}: Props) => {
         <div className="flex items-center gap-4 ">
           <div>
             <Tooltip content="Ver gastos">
-              <button onClick={() => console.log("Ver usuario", user)}>
-                <EyeIcon size={20} fill="#979797" />
+              <button onClick={() => console.log("Ver autor", autor)}>
+                <FaEye size={20} fill="#979797" />
               </button>
             </Tooltip>
           </div>

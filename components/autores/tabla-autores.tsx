@@ -7,10 +7,10 @@ import {
   TableRow,
 } from "@nextui-org/react";
 import React from "react";
-import { columns, autores } from "./data";
+import { columns, autores } from "../../data_db/autores";
 import {RenderCell} from "./render-cell";
 
-export const TableWrapper = () => {
+export const TablaAutores = () => {
 
   return (
     <div className=" w-full flex flex-col gap-4">
@@ -33,7 +33,7 @@ export const TableWrapper = () => {
             <TableRow>
               {(columnKey) => (
                 <TableCell>
-                  {RenderCell({ user: item, columnKey: columnKey})}
+                  {RenderCell({ autor: item, columnKey: columnKey})}
                 </TableCell>
               )}
             </TableRow>

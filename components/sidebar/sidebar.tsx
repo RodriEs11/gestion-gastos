@@ -1,25 +1,17 @@
 import React from "react";
 import { Sidebar } from "./sidebar.styles";
-import { Avatar, Tooltip } from "@nextui-org/react";
+import { Avatar, Link, Tooltip } from "@nextui-org/react";
 import { CompaniesDropdown } from "./companies-dropdown";
-import { HomeIcon } from "../icons/sidebar/home-icon";
-import { PaymentsIcon } from "../icons/sidebar/payments-icon";
-import { BalanceIcon } from "../icons/sidebar/balance-icon";
-import { AccountsIcon } from "../icons/sidebar/accounts-icon";
-import { CustomersIcon } from "../icons/sidebar/customers-icon";
-import { ProductsIcon } from "../icons/sidebar/products-icon";
-import { ReportsIcon } from "../icons/sidebar/reports-icon";
-import { DevIcon } from "../icons/sidebar/dev-icon";
-import { ViewIcon } from "../icons/sidebar/view-icon";
-import { SettingsIcon } from "../icons/sidebar/settings-icon";
-import { CollapseItems } from "./collapse-items";
 import { SidebarItem } from "./sidebar-item";
 import { SidebarMenu } from "./sidebar-menu";
-import { FilterIcon } from "../icons/sidebar/filter-icon";
 import { useSidebarContext } from "../layout/layout-context";
-import { ChangeLogIcon } from "../icons/sidebar/changelog-icon";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+import { IoHome, IoSettings, IoSettingsSharp } from "react-icons/io5";
+import { FaDollarSign, FaUsers } from "react-icons/fa";
+import { FaRegCreditCard } from "react-icons/fa6";
+import { MdOutlineAddCard, MdOutlineDeveloperMode } from "react-icons/md";
+import { GrView } from "react-icons/gr";
+import { GoHistory } from "react-icons/go";
 
 export const SidebarWrapper = () => {
   const pathname = usePathname();
@@ -42,7 +34,7 @@ export const SidebarWrapper = () => {
           <div className={Sidebar.Body()}>
             <SidebarItem
               title="Inicio"
-              icon={<HomeIcon />}
+              icon={<IoHome />}
               isActive={pathname === "/"}
               href="/"
             />
@@ -50,34 +42,27 @@ export const SidebarWrapper = () => {
               <SidebarItem
                 isActive={pathname === "/autores"}
                 title="Autores"
-                icon={<AccountsIcon />}
+                icon={<FaUsers />}
                 href="autores"
-              />
-              <SidebarItem
-                isActive={pathname === "/compras"}
-                title="Compras"
-                icon={<PaymentsIcon />}
-                href="compras"
               />
 
               <SidebarItem
                 isActive={pathname === "/tarjetas"}
                 title="Tarjetas"
-                icon={<PaymentsIcon />}
+                icon={<FaRegCreditCard />}
                 href="tarjetas"
               />
-
-              <CollapseItems
-                icon={<BalanceIcon />}
-                items={["Cuenta Bancaria", "Tarjetas de crédito"]}
-                title="Balance"
-              />
-
               <SidebarItem
-                isActive={pathname === "/reportes"}
-                title="Reportes"
-                icon={<ReportsIcon />}
-                href="reportes"
+                isActive={pathname === "/compras"}
+                title="Compras"
+                icon={<FaDollarSign />}
+                href="compras"
+              />
+              <SidebarItem
+                isActive={pathname === "/agregar-compras"}
+                title="Agregar compras"
+                icon={<MdOutlineAddCard />}
+                href="agregar-compras"
               />
             </SidebarMenu>
 
@@ -85,17 +70,17 @@ export const SidebarWrapper = () => {
               <SidebarItem
                 isActive={pathname === "/developers"}
                 title="Developers"
-                icon={<DevIcon />}
+                icon={<MdOutlineDeveloperMode />}
               />
               <SidebarItem
                 isActive={pathname === "/view"}
                 title="View Test Data"
-                icon={<ViewIcon />}
+                icon={<GrView />}
               />
               <SidebarItem
                 isActive={pathname === "/settings"}
                 title="Settings"
-                icon={<SettingsIcon />}
+                icon={<IoSettingsSharp  />}
               />
             </SidebarMenu>
 
@@ -103,7 +88,7 @@ export const SidebarWrapper = () => {
               <SidebarItem
                 isActive={pathname === "/changelog"}
                 title="Changelog"
-                icon={<ChangeLogIcon />}
+                icon={<GoHistory  />}
               />
             </SidebarMenu>
           </div>
@@ -111,7 +96,7 @@ export const SidebarWrapper = () => {
             <Tooltip content={"Configuración"} color="primary">
               <div className="max-w-fit">
                 <Link href={"configuracion"}>
-                  <SettingsIcon />
+                  <IoSettings  />
                 </Link>
               </div>
             </Tooltip>

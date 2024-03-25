@@ -7,14 +7,14 @@ import {
   NavbarItem,
 } from "@nextui-org/react";
 import React from "react";
-import { NotificationIcon } from "../icons/navbar/notificationicon";
+import { IoMdNotifications } from "react-icons/io";
 
 export const NotificationsDropdown = () => {
   return (
     <Dropdown placement="bottom-end">
       <DropdownTrigger>
         <NavbarItem>
-          <NotificationIcon />
+          <IoMdNotifications  />
         </NavbarItem>
       </DropdownTrigger>
       <DropdownMenu className="w-80" aria-label="Avatar Actions">

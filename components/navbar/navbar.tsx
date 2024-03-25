@@ -1,12 +1,10 @@
 import { Input, Link, Navbar, NavbarContent } from "@nextui-org/react";
 import React from "react";
-import { FeedbackIcon } from "../icons/navbar/feedback-icon";
-import { GithubIcon } from "../icons/navbar/github-icon";
-import { SupportIcon } from "../icons/navbar/support-icon";
-import { SearchIcon } from "../icons/searchicon";
 import { BurguerButton } from "./burguer-button";
 import { NotificationsDropdown } from "./notifications-dropdown";
 import { UserDropdown } from "./user-dropdown";
+import { FaGithub, FaSearch } from "react-icons/fa";
+import { IoMdHelpCircle } from "react-icons/io";
 
 interface Props {
   children: React.ReactNode;
@@ -27,7 +25,7 @@ export const NavbarWrapper = ({ children }: Props) => {
         </NavbarContent>
         <NavbarContent className="w-full max-md:hidden">
           <Input
-            startContent={<SearchIcon />}
+            startContent={<FaSearch  />}
             isClearable
             className="w-full"
             classNames={{
@@ -44,14 +42,14 @@ export const NavbarWrapper = ({ children }: Props) => {
           <NotificationsDropdown />
 
           <Link href="ayuda" className="max-md:hidden">
-            <SupportIcon />
+            <IoMdHelpCircle  />
           </Link>
 
           <Link
             href="https://github.com/RodriEs11"
             target={"_blank"}
           >
-            <GithubIcon />
+            <FaGithub  />
           </Link>
           <NavbarContent>
             <UserDropdown />

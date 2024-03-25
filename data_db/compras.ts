@@ -1,5 +1,5 @@
 import React from "react";
-export const users = [
+export const compras = [
   {
     key: "1",
     autor: "Rodrigo Espindola",
